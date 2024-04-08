@@ -25,6 +25,7 @@ async def POST_Router(devices: List[APIstruct]):
             device.post_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         custom_logger.info(f"POST Router | post_time add JSON Data: {device.post_time}")
         db_list.append(device)
+        db_manager.add_device(device)
 
     elapsed_time = (datetime.now() - start_time).total_seconds()
 

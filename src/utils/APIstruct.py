@@ -7,15 +7,23 @@ app = FastAPI()
 
 class DBManager:
     def __init__(self):
-        self.db_list = []
-    
-    def get_db(self):
-        return self.db_list
-    
-    def set_db(self, db_list):
-        self.db_list = db_list
+        self.db_list = []  
 
-db_manager = DBManager()
+    def get_db(self):
+        return self.db_list  
+    
+    def add_device(self, device):
+        self.db_list.append(device) 
+
+    def remove_device(self, device_id):
+        self.db_list = [device for device in self.db_list if device.id != device_id] 
+
+    def update_device(self, device_id, new_device):
+        for i, device in enumerate(self.db_list):
+            if device.id == device_id:
+                self.db_list[i] = new_device
+                return True  
+        return False
 
 
 class APIstruct(BaseModel):
