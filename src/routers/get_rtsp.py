@@ -6,7 +6,7 @@ import re
 sys.path.append("../")
 from typing import List
 
-from utils import config_mng, custom_logger, APIstruct, json_list, db_list
+from utils import config_mng, custom_logger, APIstruct, json_list, db_list,db_manager
 
 ini_dict = config_mng.get_config_dict()
 
@@ -15,7 +15,7 @@ get_router = APIRouter()
 @get_router.get("/list/", response_model=List[APIstruct])
 async def get_items():
     start_time = datetime.now() 
-    json_list = []
+    json_list = [APIstruct(**item.__dict__) for item in db_manager.get_db()]
 
     for item in db_list:
         json_list_data = {}
@@ -37,10 +37,12 @@ async def get_items():
 @get_router.get("/list/{id}", response_model=APIstruct)
 async def get_item_by_id(id: int):
     start_time = datetime.now() 
-    for item in db_list:
-        if item.id == id:
-            custom_logger.info("GET Router | JSON Data send successfully ")
-            return item
+    item = next((item for item in db_manager.get_db() if item.id == id), None)
+
+    if item:
+        custom_logger.info("GET Router | JSON Data send successfully ")
+        return item
+
     elapsed_time = (datetime.now() - start_time).total_seconds()
     
     if elapsed_time > 2.0:

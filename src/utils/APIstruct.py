@@ -22,7 +22,10 @@ class DBManager:
         for i, device in enumerate(self.db_list):
             if device.id == device_id:
                 self.db_list[i] = new_device
-                return True  
+                return True 
+    def set_db(self, new_db_list):
+        self.db_list = [APIstruct(**item) for item in new_db_list]
+
         return False
 
 
