@@ -1,6 +1,6 @@
 import configparser
 
-ini_path = '/vms_object_detection_server/src/config.ini'
+ini_path = "/fastapi_RESTful_server/src/config.ini"
 
 class ConfigManager:
     def __init__(self, config_file_path):

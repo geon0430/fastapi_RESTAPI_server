@@ -4,6 +4,20 @@ from typing import Optional, List
 
 app = FastAPI()
 
+
+class DBManager:
+    def __init__(self):
+        self.db_list = []
+    
+    def get_db(self):
+        return self.db_list
+    
+    def set_db(self, db_list):
+        self.db_list = db_list
+
+db_manager = DBManager()
+
+
 class APIstruct(BaseModel):
     id: int
     name: str

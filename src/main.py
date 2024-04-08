@@ -1,9 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.staticfiles import StaticFiles
 
 import uvicorn
 
-from utils import config_mng, custom_logger
+from utils import config_mng, custom_logger, DBManager, db_manager
 from routers import post_router, get_router
 import routers
 
@@ -12,6 +12,13 @@ MAIN_PORT = int(ini_dict['DASHBOARD_CLIENT']['main_port'])
 HOST_ADDRESS = ini_dict['DASHBOARD_CLIENT']['host_address']
 
 app = FastAPI()
+
+def get_db_manager():
+    return db_manager
+
+@app.get("/list/")
+async def get_list(db_manager: DBManager = Depends(get_db_manager)):
+    return db_manager.get_db()
 
 app.include_router(post_router)
 app.include_router(get_router)
