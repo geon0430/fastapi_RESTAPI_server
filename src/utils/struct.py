@@ -5,7 +5,6 @@ from utils import custom_logger
 
 app = FastAPI()
 
-
 class DBManager:
     def __init__(self):
         self.db_list = []  
