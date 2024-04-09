@@ -4,7 +4,8 @@ from datetime import datetime
 import sys
 sys.path.append("../")
 
-from utils import custom_logger, APIstruct, db_manager  
+from utils import custom_logger, APIstruct 
+from utils.struct import db_manager 
 
 delete_router = APIRouter()
 

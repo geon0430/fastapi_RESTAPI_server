@@ -1,3 +1,3 @@
-from .post_rtsp import *
-from .get_rtsp import *
-from .delete_rtsp import *
+from .post_router import *
+from .get_router import *
+from .delete_router import *
