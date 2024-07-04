@@ -9,31 +9,29 @@
 
 ---
 
-<div style="display: flex;">
-
-<div style="flex: 50%;">
+<table style="width:100%;">
+<tr>
+<td style="width:50%; vertical-align: top; text-align: center;">
 
 ### 저장 위치: /dev/shm/redis.sock
 
 #### 평균 시간: 0.00733 seconds
 
-![이미지 1](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/d1222bbc-776e-467d-a14a-2b807f918a4e)
-![이미지 2](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/20748933-d223-4c1f-a631-4a29f3bfff16)
+<img src="https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/3f081b9a-7625-490f-a883-8a8dc6b0496d" style="width:100%;">
 
-</div>
+</td>
 
-<div style="flex: 50%;">
+<td style="width:50%; vertical-align: top; text-align: center;">
 
 ### 저장 위치: /fastapi_RESTAPI_server/src/redis.sock
 
 #### 평균 시간: 0.006684 seconds
 
-![이미지 3](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/43e01a1f-df1a-4c1e-a022-d7001dbd04c7)
-![이미지 4](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/379f2d88-d9d4-4b62-adcd-4491de860efb)
+<img src="https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/f63e2b3d-9aea-4c95-892d-52f5566e035b" style="width:100%;">
 
-</div>
-
-</div>
+</td>
+</tr>
+</table>
 
 ## 결론
 - shm 메모리 위치에 sock 파일을 저장하나 안 하거나 속도 차이는 거의 없음
