@@ -31,7 +31,7 @@ async def startup_event():
     app.state.logger = logger
     app.state.ini_dict = ini_dict
     app.state.db_manager = db_manager
-    app.state.redis = redis  # 추가하여 shutdown_event에서 접근 가능하게 설정
+    app.state.redis = redis 
 
 async def shutdown_event():
     await app.state.redis.close()

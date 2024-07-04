@@ -1,5 +1,5 @@
 from datetime import datetime
-from fastapi import APIRouter, HTTPException, status, Depends, Request
+from fastapi import APIRouter, HTTPException, status, Depends
 from typing import List
 from utils import db_list_check, validate_config, get_logger, get_ini_dict, get_db_manager, APIstruct
 
@@ -20,7 +20,7 @@ async def POST_Router(devices: List[APIstruct], logger=Depends(get_logger), db_m
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=validation_result)
 
     for device in devices:
-        db_manager.add_device(device)
+        await db_manager.add_device(device) 
         logger.info(f"POST Router | Device added: {device.id}")
 
     elapsed_time = (datetime.now() - start_time).total_seconds()

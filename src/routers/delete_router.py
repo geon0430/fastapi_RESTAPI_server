@@ -9,7 +9,7 @@ delete_router = APIRouter()
 async def DELETE_Router(id: int, logger=Depends(get_logger), db_manager=Depends(get_db_manager), ini_dict=Depends(get_ini_dict)):
     start_time = datetime.now()
 
-    success = db_manager.remove_device(id)
+    success = await db_manager.remove_device(id)  
 
     if not success:
         logger.error(f"DELETE Router | Item with id {id} not found ")
@@ -22,5 +22,4 @@ async def DELETE_Router(id: int, logger=Depends(get_logger), db_manager=Depends(
         raise HTTPException(status_code=status.HTTP_408_REQUEST_TIMEOUT, detail="Request timeout")
 
     logger.info(f"DELETE Router | Item with id {id} deleted successfully")
-    return db_manager.get_db()
-
+    return await db_manager.get_db() 
