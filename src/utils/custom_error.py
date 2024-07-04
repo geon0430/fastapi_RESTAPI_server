@@ -1,12 +1,7 @@
-from fastapi import APIRouter, HTTPException, status
-from pydantic import BaseModel
-from datetime import datetime
 import re
 from typing import List
-from utils import config_mng, custom_logger, APIstruct,json_list
-from utils.struct import db_manager
-ini_dict = config_mng.get_config_dict()
-
+from utils import APIstruct
+ 
 async def validate_config(json_list: List[APIstruct]) -> str:
     time_format = "%H:%M"
     error_messages = []
@@ -33,9 +28,10 @@ async def validate_config(json_list: List[APIstruct]) -> str:
     return ""
 
 
-async def db_list_check(json_list: List[APIstruct]) -> str:
-    for new_item in json_list:
-        for existing_item in db_manager.get_db():
-            if new_item.id == existing_item.id or new_item.name == existing_item.name:
-                return f"Duplicate entry found with id: {new_item.id} or name: {new_item.name}"
-    return ""
+async def db_list_check(devices, db_manager):
+    existing_devices = await db_manager.get_db()  # Await the coroutine
+    for existing_item in existing_devices:
+        for new_item in devices:
+            if existing_item.id == new_item.id:
+                return f"Duplicate device id found: {existing_item.id}"
+    return None
