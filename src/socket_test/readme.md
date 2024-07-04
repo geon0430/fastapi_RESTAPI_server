@@ -9,21 +9,32 @@
 
 ---
 
-## 저장 위치: /dev/shm/redis.sock
+<div style="display: flex;">
 
-### 평균 시간: 0.00733 seconds
+<div style="flex: 50%;">
 
-![이미지 1](https://prod-files-secure.s3.us-west-2.amazonaws.com/51bbdf15-8dfa-44af-b25f-5a1aa417d5b8/c6f61d8b-217a-4da8-8841-261256636a63/Untitled.jpeg)
-![이미지 2](https://prod-files-secure.s3.us-west-2.amazonaws.com/51bbdf15-8dfa-44af-b25f-5a1aa417d5b8/77e53d13-ecf8-473c-a99d-146b0961d334/Untitled.jpeg)
+### 저장 위치: /dev/shm/redis.sock
 
-## 저장 위치: /fastapi_RESTAPI_server/src/redis.sock
+#### 평균 시간: 0.00733 seconds
 
-### 평균 시간: 0.006684 seconds
+![이미지 1](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/d1222bbc-776e-467d-a14a-2b807f918a4e)
+![이미지 2](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/20748933-d223-4c1f-a631-4a29f3bfff16)
 
-![이미지 3](https://prod-files-secure.s3.us-west-2.amazonaws.com/51bbdf15-8dfa-44af-b25f-5a1aa417d5b8/b08c0aa6-02b2-45f2-a8f9-17380f764b2d/Untitled.jpeg)
-![이미지 4](https://prod-files-secure.s3.us-west-2.amazonaws.com/51bbdf15-8dfa-44af-b25f-5a1aa417d5b8/92fb1f91-7b43-4799-b5ca-e4af60cb1578/Untitled.jpeg)
+</div>
+
+<div style="flex: 50%;">
+
+### 저장 위치: /fastapi_RESTAPI_server/src/redis.sock
+
+#### 평균 시간: 0.006684 seconds
+
+![이미지 3](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/43e01a1f-df1a-4c1e-a022-d7001dbd04c7)
+![이미지 4](https://github.com/geon0430/fastapi_RESTAPI_server/assets/114966864/379f2d88-d9d4-4b62-adcd-4491de860efb)
+
+</div>
+
+</div>
 
 ## 결론
 - shm 메모리 위치에 sock 파일을 저장하나 안 하거나 속도 차이는 거의 없음
 - Redis를 통한 이미지 데이터 저장 및 조회 속도는 매우 빠름
-
