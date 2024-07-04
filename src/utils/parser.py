@@ -12,6 +12,7 @@ class ConfigManager:
                 'HOST' : str,
                 'PORT': int,
                 'PASSWORD': str,
+                'SOCKET' : str,
             },
             'CONFIG': {
                 'LOG_FILE_PATH' : str,

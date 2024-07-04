@@ -12,5 +12,5 @@ RUN apt-get update && \
 
 RUN ln -s $(which python3) /usr/bin/python
 
-RUN pip install jupyter pandas fastapi[all] python-multipart jupyter fastapi_utils loguru pytest requests
+RUN pip install jupyter pandas fastapi[all] python-multipart jupyter fastapi_utils loguru pytest requests redis
 

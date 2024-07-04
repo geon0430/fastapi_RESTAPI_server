@@ -17,12 +17,18 @@ async def startup_event():
     ini_dict = api_config.get_config_dict()
     logger = setup_logger(ini_dict)
     
-    host = ini_dict['REDIS']['HOST']
-    port = ini_dict['REDIS']['PORT']
-    password = ini_dict['REDIS']['PASSWORD']
+    # TCP
+    # host = ini_dict['REDIS']['HOST']
+    # port = ini_dict['REDIS']['PORT']
+    # password = ini_dict['REDIS']['PASSWORD']
     
-    redis_url = f"redis://{host}:{port}"
-    redis = Redis.from_url(redis_url, password=password, db=0, encoding="utf-8", decode_responses=True)
+    # redis_url = f"redis://{host}:{port}"
+    # redis = Redis.from_url(redis_url, password=password, db=0, encoding="utf-8", decode_responses=True)
+    
+    # SOCKET
+    password = ini_dict['REDIS']['PASSWORD']
+    redis_socket_path = ini_dict['REDIS']['SOCKET']
+    redis = Redis(unix_socket_path=redis_socket_path, password=password, encoding="utf-8", decode_responses=True)
     
     db_manager = DBManager(redis)
     
